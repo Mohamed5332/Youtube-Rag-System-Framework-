@@ -1,0 +1,53 @@
+[
+{
+"question": "What did Google's 2017 paper introduce?",
+"ground_truth_answer": "Google's 2017 paper, 'Attention is all you need,' introduced the transformer architecture, which is the engine that powers major AI systems like GPT, Claude, and Gemini.",
+"relevant_chunk_ids": ["chunk_No:5"]
+},
+{
+"question": "What is the approximate context window size of Claude Opus?",
+"ground_truth_answer": "As of 2025 going into 2026, Claude Opus has a context window of around 200,000 tokens, which is roughly 150,000 words.",
+"relevant_chunk_ids": ["chunk_No:9"]
+},
+{
+"question": "What is a downside of having a very large context window?",
+"ground_truth_answer": "A larger context window means more cost, slower responses, and the model can sometimes lose focus on things earlier in the conversation, so context window size is a real engineering consideration rather than just a bragging right.",
+"relevant_chunk_ids": ["chunk_No:11"]
+},
+{
+"question": "What does it mean for an AI agent to have 'autonomy'?",
+"ground_truth_answer": "Autonomy refers to the capacity of an AI agent to act independently and make choices, rather than needing step-by-step instructions from a human.",
+"relevant_chunk_ids": ["chunk_No:15"]
+},
+{
+"question": "What are the four steps of the core AI agent loop?",
+"ground_truth_answer": "The core agent loop has four steps: perceive (receive input), think (reason through the context), act (call a tool or give a final answer), and observe (read and absorb the result of a tool call), then loop back to thinking again.",
+"relevant_chunk_ids": ["chunk_No:16", "chunk_No:17", "chunk_No:19"]
+},
+{
+"question": "What is chain-of-thought prompting?",
+"ground_truth_answer": "Chain-of-thought prompting forces the model to verbalize its entire reasoning process before giving an answer, such as with the phrase 'Let's think step by step,' and it dramatically improves accuracy on math problems, logic puzzles, and multi-step reasoning tasks.",
+"relevant_chunk_ids": ["chunk_No:52"]
+},
+{
+"question": "What is the plan and execute architecture and what is its downside?",
+"ground_truth_answer": "Plan and execute is an architecture with two distinct phases: the agent first creates a complete plan up front, then executes each step one by one. It works well for predictable workflows, but its downside is that if something unexpected happens mid-execution, the upfront plan might become outdated.",
+"relevant_chunk_ids": ["chunk_No:52"]
+},
+{
+"question": "What is LangChain used for?",
+"ground_truth_answer": "LangChain is the most popular AI agent framework, with a massive ecosystem of over 100 integrations. It includes LangGraph for building complex stateful multi-agent workflows with loops and conditional branching, making it a good starting point for production systems with complex pipelines.",
+"relevant_chunk_ids": ["chunk_No:56"]
+},
+{
+"question": "What is the 60-30-10 cost rule for routing AI tasks?",
+"ground_truth_answer": "The 60-30-10 cost rule routes 60% of tasks, such as simple classification and basic formatting, to cheap fast models; 30% of tasks, such as moderate research and synthesis, to mid-tier models; and reserves the top 10% of tasks, such as complex orchestration and high-stakes decisions, for the most powerful models.",
+"relevant_chunk_ids": ["chunk_No:59"]
+},
+{
+"question": "What guiding principles support safe agent design?",
+"ground_truth_answer": "The guiding principles for safe agent design are minimal footprint (only requesting permissions actually needed), preference for reversibility (choosing undoable actions over permanent ones), transparency (always explaining what is being done and why), and uncertainty escalation (asking instead of guessing when unsure).",
+"relevant_chunk_ids": ["chunk_No:61"]
+}
+]
+

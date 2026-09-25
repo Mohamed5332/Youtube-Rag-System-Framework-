@@ -1,0 +1,74 @@
+[
+{
+"question": "What primary obstacle slowed down human progression across the African continent, and how did early humans occasionally cross these regions?",
+"ground_truth_answer": "The main obstacle was deserts, which lacked drinking water and animals to hunt. Early humans were able to occasionally cross these difficult regions by stringing together short trips between oases.",
+"relevant_chunk_ids": [
+"chunk_No:4",
+"chunk_No:5",
+"chunk_No:6"
+]
+},
+{
+"question": "How do parasites provide evidence for when humans first began wearing clothes?",
+"ground_truth_answer": "Hair lice specifically evolved to live under the protection of human hair. When they split off into body lice, it provided the earliest evidence that humans started wearing clothes on their bodies.",
+"relevant_chunk_ids": [
+"chunk_No:6"
+]
+},
+{
+"question": "Why did the island of Madagascar remain untouched by humans until 2,000 years ago?",
+"ground_truth_answer": "Madagascar remained untouched because it was separated from Africa by the sea, and early humans did not visit places if they lacked the means to travel there.",
+"relevant_chunk_ids": [
+"chunk_No:8"
+]
+},
+{
+"question": "What was the Abbassia Pluvial and how did it impact human migration across Africa?",
+"ground_truth_answer": "The Abbassia Pluvial was an unusually long and wet period that transformed deserts across Africa into swamps and rivers, helping more humans move across the continent.",
+"relevant_chunk_ids": [
+"chunk_No:10"
+]
+},
+{
+"question": "What caused the human population to shrink to less than 10,000 individuals, creating a genetic bottleneck?",
+"ground_truth_answer": "The Toba supereruption in Indonesia radically altered the climate, causing the human population to shrink to fewer than 10,000 individuals.",
+"relevant_chunk_ids": [
+"chunk_No:20"
+]
+},
+{
+"question": "How do anatomically modern humans differ from behaviorally modern humans according to the text?",
+"ground_truth_answer": "Anatomically modern humans simply looked like modern humans, whereas behaviorally modern humans thought and acted like modern humans, which is evidenced by a rapid expansion of stone age technology and complex behaviors starting 50,000 years ago.",
+"relevant_chunk_ids": [
+"chunk_No:24"
+]
+},
+{
+"question": "What physical evidence reveals the existence of music and musical instruments among early Homo Sapiens?",
+"ground_truth_answer": "The Hohle Fels Flute, up to 40,000 years old, was discovered in a German cave. It was crafted from a vulture's wing bone and has five holes.",
+"relevant_chunk_ids": [
+"chunk_No:25"
+]
+},
+{
+"question": "How did the Last Glacial Maximum enable early humans to migrate into the Americas?",
+"ground_truth_answer": "The Last Glacial Maximum reduced sea levels by 120 meters, turning the Bering Strait into the Bering Bridge. This allowed groups of humans to walk across the passage into North America and descend down the continent.",
+"relevant_chunk_ids": [
+"chunk_No:27"
+]
+},
+{
+"question": "Why is Göbekli Tepe considered significant in the timeline of human civilization?",
+"ground_truth_answer": "Built 12,000 years ago in modern Turkey, Göbekli Tepe was a giant structure built with a level of collaboration that heralded modern civilization, marking a shift from wandering in isolated bands to settling in larger groups that shared resources, beliefs, and learnings.",
+"relevant_chunk_ids": [
+"chunk_No:29"
+]
+},
+{
+"question": "In what ways did the development of written language impact early human societies?",
+"ground_truth_answer": "Writing allowed humans to communicate across any distance, coordinate efforts for major construction, lay down laws in stone, store knowledge over centuries, and build up armies to decide the fate of nations.",
+"relevant_chunk_ids": [
+"chunk_No:30"
+]
+}
+]

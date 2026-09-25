@@ -1,0 +1,52 @@
+[
+{
+"question": "How did Earth's atmosphere and conditions evolve from its formation through the early Hadean and Archean eons?",
+"ground_truth_answer": "Right after Earth was born 4.5 billion years ago, it was a hell of lava with an atmosphere mostly made of CO2. Even 90 million years later Earth was still in this lava hell phase, though zircon minerals suggest some water may have existed. At this time the Sun was 30% less bright than today, but abundant greenhouse gases kept the planet hot despite this.",
+"relevant_chunk_ids": ["chunk_No:1"]
+},
+{
+"question": "What role did the Moon's formation and the heavy asteroid bombardment play in early Earth history?",
+"ground_truth_answer": "Early in Earth's history, it collided with a Mars-sized object called Theia, which formed the Moon; the Moon appeared huge in the sky at first and has been slowly shrinking as it orbits farther away over hundreds of millions of years. Around 90 million years after Earth's formation, Earth and the inner solar system were smashed by a constant heavy asteroid bombardment lasting several hundred million years, all while the planet was still in its lava hell phase.",
+"relevant_chunk_ids": ["chunk_No:1"]
+},
+{
+"question": "How did the transition to oxygen-rich atmosphere unfold from the Great Oxidation Event through the Rhyacian and Orosirian periods?",
+"ground_truth_answer": "During the Great Oxidation Event 2.5 billion years ago, oxygen burped out by cyanobacteria reached the atmosphere in large quantities, reacting with methane to form CO2 and water, which rapidly cooled the planet and caused it to freeze over for the first time in a period of multiple ice ages. Then 2.3 billion years ago in the Rhyacian, volcanic activity heated Earth back up and melted the ice, though the melting ice flushed toxic elements into the oceans. Later, around 2.05 billion years ago in the Orosirian, a large asteroid created the largest verified impact structure on Earth.",
+"relevant_chunk_ids": ["chunk_No:4"]
+},
+{
+"question": "What key developments in Earth's interior and cellular life occurred around the Statherian, Calymmian, and Ectasian periods?",
+"ground_truth_answer": "1.8 billion years ago in the Statherian, the supercontinent Columbia formed and a natural self-sustaining nuclear reactor arose from scattered uranium deposits. Around 1.6 billion years ago in the Calymmian, the first eukaryotic cells, cells with a nucleus, emerged from the merger of two other cells, one of the most important moments in the history of life. Later, in the Ectasian around 1.4 billion years ago, Earth's inner core began forming as it started to solidify into an iron crystal surrounded by hot liquid metal.",
+"relevant_chunk_ids": ["chunk_No:4", "chunk_No:5"]
+},
+{
+"question": "How did life diversify and change from the Stenian through the Tonian and into the era of unicellular predators?",
+"ground_truth_answer": "1.2 billion years ago in the Stenian, not much was happening except that the algae Bangiomorpha pubescens might have invented sex, a major reproductive improvement. 1 billion years ago the Tonian began, another age where life remained invisible to the naked eye. Sometime after, the first unicellular predators emerged, ending the dominance of bacteria as eukaryotes established themselves in the oceans and sparked an arms race between microbes that created huge diversity.",
+"relevant_chunk_ids": ["chunk_No:7", "chunk_No:9"]
+},
+{
+"question": "What major freezing and supercontinent events occurred in the Cryogenian and Ediacaran periods before life became multicellular?",
+"ground_truth_answer": "720 million years ago in the Cryogenian, Earth froze over again, and it remains unclear how life managed to survive. Then 635 million years ago, the supercontinent Gondwana formed, much of which still exists today. Shortly after, multicellular organisms suddenly became widespread, a dramatic shift after so much time with only single-celled life.",
+"relevant_chunk_ids": ["chunk_No:10", "chunk_No:12", "chunk_No:14"]
+},
+{
+"question": "What happened during and after the Cambrian explosion in terms of biodiversity and mass extinction?",
+"ground_truth_answer": "539 million years ago, the Cambrian explosion began, bursting with variety as ancestors of almost all of today's major animal groups appeared and plants started to discover land. However, a big mass extinction happened right after, killing most species in the ocean. Despite this, plants went on to spread over the planet, creating soil and changing the atmosphere by consuming CO2.",
+"relevant_chunk_ids": ["chunk_No:14"]
+},
+{
+"question": "How did Earth's supercontinents and mass extinctions evolve from the Carboniferous through the Triassic?",
+"ground_truth_answer": "359 million years ago in the Carboniferous, forests and lush marshlands were at their peak and would eventually turn into the coal humans burn today. Around 299 million years ago in the Permian, the supercontinent Pangea formed, and shortly after, the largest mass extinction in history killed the majority of all species, largely due to volcanic activity. Then 252 million years ago, the Triassic began, marking the true age of reptiles as dinosaurs and the ancestors of birds emerged.",
+"relevant_chunk_ids": ["chunk_No:14", "chunk_No:15"]
+},
+{
+"question": "What events marked the end of the dinosaur age and the rise of mammals?",
+"ground_truth_answer": "During the Triassic and after, dinosaurs thrived and life seemed to be flourishing, but an asteroid then killed the dinosaurs and most other species on Earth. Following this, 66 million years ago in the Paleogene, the continents began to look roughly as they do today, and mammals took over, marking the beginning of our own era.",
+"relevant_chunk_ids": ["chunk_No:15", "chunk_No:16"]
+},
+{
+"question": "What evidence do we have of the first life forms and early photosynthesis on Earth, and how did the early continents form around the same time?",
+"ground_truth_answer": "From the early history of Earth, we still have stromatolites, sedimentary rocks built by microorganisms, which are among our first real evidence of life on Earth, and photosynthesis may have started around this same time. Around 3.2 billion years ago in the Mesoarchean, the era of continents began as tectonic plates crushed into each other, forming the basis of today's continents, while the oceans were extremely hot, over 40°C, and full of expanding microbes, with no oxygen yet in the atmosphere.",
+"relevant_chunk_ids": ["chunk_No:2", "chunk_No:3"]
+}
+]

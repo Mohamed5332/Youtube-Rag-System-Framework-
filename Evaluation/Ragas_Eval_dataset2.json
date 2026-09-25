@@ -1,0 +1,148 @@
+[
+    {
+        "question": "What primary obstacle slowed down human progression across the African continent, and how did early humans occasionally cross these regions?",
+        "ground_truth_answer": "The main obstacle was deserts, which lacked drinking water and animals to hunt. Early humans were able to occasionally cross these difficult regions by stringing together short trips between oases.",
+        "relevant_chunk_ids": [
+            "chunk_No:4",
+            "chunk_No:5",
+            "chunk_No:6"
+        ],
+        "response": "The main obstacle was the **deserts**—vast arid zones with no water or game that halted movement.  \nEarly humans sometimes managed to get across them by **linking short journeys from one oasis to the next**, effectively “stringing together” brief trips between oases to traverse otherwise impassable desert stretches.",
+        "retrieved_contexts": [
+            "It's unclear. Our natural desire to wander \ntakes us all around the continent,   from the Mediterranean coast \ndown to the tip of South Africa. One major obstacle slowed down \nour progression: the deserts. With no water to drink nor animals to hunt, we \ndidn't know how to cross these difficult regions.",
+            "We used it to build simple rafts, which \nwe could use to cross the expanses of water separating islands in Southeast \nAsia, which were much smaller than today. This allowed Homo Sapiens to \nmake their way into Indonesia, New Guinea and the Australian continent, \neach a new alien world to our ancestors. While some groups bore the humid heat in Oceania, others hemmed in by glaciers in Central \nEurope pushed back against the cold to expand into Western Europe and North \nAsia, reaching as far as Siberia. Our travels put us into contact \nwith more of our hominin cousins. Encounters with Denisovans \nin Asia led to interbreeding that has left its own specific genetic mark. Having groups of excellent hunters move into new territories wasn't good \nnews for the local wildlife. A widespread extinction of megafauna \nhas been blamed on human hunting, that leaves land mammals \nsmaller, rarer or extinct. Populations arrived in New Guinea more than \n50,000 years ago, and we have evidence that they cleared forests using stone axes to \nmake foraging for nuts and yams easier. Starting 50,000 years ago, Homo Sapiens \nunderwent a cultural revolution. The changes were so significant we distinguish \nanatomically modern humans that just looked like us, from behaviourally modern humans \nthat thought and acted like us too. The evidence appears as a rapid expansion of stone age technology and complex behaviours \nthat leave, for example, better cave art. Our hunting styles also became very varied and well adapted to the new \nenvironments we encountered. By 45,000 years ago, we became experts \nin hunting monkies and squirrels, then making tools out of their bones. We find them in large numbers \ninside caves in Sri Lanka. Humans have always loved caves. We love them so much that we find traces of human activity inside them across the \nwhole world, whenever we look. They're great natural protection \nagainst the dangerous world outside, whether it's climate or predators. Cover the entrance, get a fire going and \nyou've got a ready made home for your family. The first statue ever is 40,000 years old. It's the Lion Man, depicting a human figure \nwith a lion head, found in a cave in Germany. Homo Sapiens' arrival was so impactful that \nother species started adapting to them.",
+            "By stringing together short trips between oases, our ancestors might have been able to \noccasionally cross impossible deserts. Hair lice are delicate parasites that evolved specifically to live under \nthe protection of our hair. So when they split off into body lice, we get the earliest evidence that we \nstarted to wear clothes on our bodies. Human expansion was not \nsome sort of linear journey."
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:4",
+            "chunk_No:24",
+            "chunk_No:6"
+        ]
+    },
+    {
+        "question": "How do parasites provide evidence for when humans first began wearing clothes?",
+        "ground_truth_answer": "Hair lice specifically evolved to live under the protection of human hair. When they split off into body lice, it provided the earliest evidence that humans started wearing clothes on their bodies.",
+        "relevant_chunk_ids": [
+            "chunk_No:6"
+        ],
+        "response": "Parasites—specifically lice—offer clues. Hair lice live only in hair, but when a lineage split off to become body lice, those lice could survive only by living in the warm, protected environment of clothing. The emergence of body lice therefore marks the earliest biological evidence that humans began wearing clothes.",
+        "retrieved_contexts": [
+            "By stringing together short trips between oases, our ancestors might have been able to \noccasionally cross impossible deserts. Hair lice are delicate parasites that evolved specifically to live under \nthe protection of our hair. So when they split off into body lice, we get the earliest evidence that we \nstarted to wear clothes on our bodies. Human expansion was not \nsome sort of linear journey."
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:6"
+        ]
+    },
+    {
+        "question": "Why did the island of Madagascar remain untouched by humans until 2,000 years ago?",
+        "ground_truth_answer": "Madagascar remained untouched because it was separated from Africa by the sea, and early humans did not visit places if they lacked the means to travel there.",
+        "relevant_chunk_ids": [
+            "chunk_No:8"
+        ],
+        "response": "The island stayed untouched because early humans didn’t have the means to cross the sea that separates Madagascar from Africa, so they could not reach it until about 2,000 years ago.",
+        "retrieved_contexts": [
+            "If we didn't have the means to go somewhere, then we'd never visit it even if it \nwas right next to our birthplace. The island of Madagascar, \nseparated from Africa by sea, remained untouched until 2000 \nyears ago for this reason. One of our greatest strengths is our adaptability. Where other species would perish or \nretreat when the climate changed, we would instead find new ways of living. Like when we moved into the African \ncoasts to escape the worst of this ice age and had to rediscover everything \nabout how to hunt or find shelter. It's hard to see technological \nprogress this far back. Hardening pointy sticks in a fire seems so \nsimple, yet it was huge progress for this time. Walking down the beach looking for shellfish, \nour ancestors sometimes collected pretty shells. We know they had an eye for beauty, just like us. Remains of burnt snail shells from 170,000 years ago suggest we caught giant gastropods \nand turned them into roasted snacks. One ancestor's trash is a paleoarcheologist's treasure. 164,000 year old leftovers containing shellfish reveal that humans learnt to exploit marine resources back then. The hominins likely descended \nfrom tree-dwelling apes, and we still found trees quite \nneat millions of years later. Forests housed plenty of food \nand could hide us from predators, so we kept returning to them whenever we could. Despite all of our tricks, \nsharp sticks and hiding spots, our species remained a target \nfor fearsome predators. Bears, hyenas and lions larger than anything we \nsee today challenged our status as top hunters. The real paleo diet: roasted seeds, \ncrushed tubers, and a lot of meat. Nothing could be preserved for later, \nso if you came across tasty fruit, you had to eat it on the spot or lose it. Thankfully, we could reach the \nroughly 3000 calories needed per day. Our ancestors had a hunter-gatherer \nlifestyle that's difficult to imagine today. They only really had to work \nfor about 20 hours per week, with the rest spent socializing, \nplaying and perhaps painting. Sounds fun!"
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:8"
+        ]
+    },
+    {
+        "question": "What was the Abbassia Pluvial and how did it impact human migration across Africa?",
+        "ground_truth_answer": "The Abbassia Pluvial was an unusually long and wet period that transformed deserts across Africa into swamps and rivers, helping more humans move across the continent.",
+        "relevant_chunk_ids": [
+            "chunk_No:10"
+        ],
+        "response": "The Abbassia Pluvial was an unusually long, wet climatic episode that turned many of Africa’s deserts into swamps and river‑filled landscapes. By creating these wetter corridors, it made travel easier and allowed more humans to move across the continent.",
+        "retrieved_contexts": [
+            "There's also a lot we don't know. Whole branches of hominins lost to \ntime, like 140,000 year old Homo Longi that was only recently discovered from \na Chinese skull and may rewrite our history. Now we really lengthen our stride. An unusually long and wet period called the \nAbbassia Pluvial transforms deserts into swamps and rivers across Africa, helping \nmore humans move across the continent. Our expansion takes us across the \nMiditerranean sea, to the island of Crete."
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:10"
+        ]
+    },
+    {
+        "question": "What caused the human population to shrink to less than 10,000 individuals, creating a genetic bottleneck?",
+        "ground_truth_answer": "The Toba supereruption in Indonesia radically altered the climate, causing the human population to shrink to fewer than 10,000 individuals.",
+        "relevant_chunk_ids": [
+            "chunk_No:20"
+        ],
+        "response": "The Toba supereruption in Indonesia, which radically altered the climate, caused the human population to shrink to fewer than 10,000 individuals.",
+        "retrieved_contexts": [
+            "Catastrophe! The Toba supereruption in \nIndonesia radically alters the climate, causing the human population to shrink to less \nthan 10,000 individuals: a genetic bottleneck. The survivors were the ones who \nknew how to scavenge for food, find reliable shelter and were just lucky \nenough to live in less affected areas."
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:20"
+        ]
+    },
+    {
+        "question": "How do anatomically modern humans differ from behaviorally modern humans according to the text?",
+        "ground_truth_answer": "Anatomically modern humans simply looked like modern humans, whereas behaviorally modern humans thought and acted like modern humans, which is evidenced by a rapid expansion of stone age technology and complex behaviors starting 50,000 years ago.",
+        "relevant_chunk_ids": [
+            "chunk_No:24"
+        ],
+        "response": "According to the passage, anatomically modern humans are those who **looked like us**—they had the same physical form as modern humans. Behaviorally modern humans, in contrast, are those who **thought and acted like us**, possessing the modern patterns of cognition, culture, and behavior.",
+        "retrieved_contexts": [
+            "We used it to build simple rafts, which \nwe could use to cross the expanses of water separating islands in Southeast \nAsia, which were much smaller than today. This allowed Homo Sapiens to \nmake their way into Indonesia, New Guinea and the Australian continent, \neach a new alien world to our ancestors. While some groups bore the humid heat in Oceania, others hemmed in by glaciers in Central \nEurope pushed back against the cold to expand into Western Europe and North \nAsia, reaching as far as Siberia. Our travels put us into contact \nwith more of our hominin cousins. Encounters with Denisovans \nin Asia led to interbreeding that has left its own specific genetic mark. Having groups of excellent hunters move into new territories wasn't good \nnews for the local wildlife. A widespread extinction of megafauna \nhas been blamed on human hunting, that leaves land mammals \nsmaller, rarer or extinct. Populations arrived in New Guinea more than \n50,000 years ago, and we have evidence that they cleared forests using stone axes to \nmake foraging for nuts and yams easier. Starting 50,000 years ago, Homo Sapiens \nunderwent a cultural revolution. The changes were so significant we distinguish \nanatomically modern humans that just looked like us, from behaviourally modern humans \nthat thought and acted like us too. The evidence appears as a rapid expansion of stone age technology and complex behaviours \nthat leave, for example, better cave art. Our hunting styles also became very varied and well adapted to the new \nenvironments we encountered. By 45,000 years ago, we became experts \nin hunting monkies and squirrels, then making tools out of their bones. We find them in large numbers \ninside caves in Sri Lanka. Humans have always loved caves. We love them so much that we find traces of human activity inside them across the \nwhole world, whenever we look. They're great natural protection \nagainst the dangerous world outside, whether it's climate or predators. Cover the entrance, get a fire going and \nyou've got a ready made home for your family. The first statue ever is 40,000 years old. It's the Lion Man, depicting a human figure \nwith a lion head, found in a cave in Germany. Homo Sapiens' arrival was so impactful that \nother species started adapting to them."
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:24"
+        ]
+    },
+    {
+        "question": "What physical evidence reveals the existence of music and musical instruments among early Homo Sapiens?",
+        "ground_truth_answer": "The Hohle Fels Flute, up to 40,000 years old, was discovered in a German cave. It was crafted from a vulture's wing bone and has five holes.",
+        "relevant_chunk_ids": [
+            "chunk_No:25"
+        ],
+        "response": "The physical evidence is the Hohle Fels flute—a vulture‑wing bone with five holes that was found in a German cave and dates to about 40,000 years ago. This artifact shows that early Homo sapiens made and played musical instruments.",
+        "retrieved_contexts": [
+            "Or, as the clever fox did, followed bands of \nhumans and picked through their leftovers. The oldest musical instrument is the Hohle \nFels Flute also discovered in a German cave. It’s from a vulture's wing bone with five holes, up to 40,000 years old, and it tells us \nwhat kind of music filled our nights. Around this time, Homo Sapiens is also \ncarving the first human figurines. The oldest we've found is the Hohle Fels Venus, \ncarved from mammoth ivory in the same region. As humans progress, Neanderthals decline until they disappear from the fossil \nrecord around 35,000 years ago. It wasn't sudden, but whatever happened caused them to go extinct in the same \nterritories that humans occupied. We found the earliest murder victim! A skull was found with a depressed fracture, suggesting someone was clubbed \nin the head 33,000 years ago. Humanity's best friends are also very old friends. The first dogs were basically identical to wolves except for behaviour \nand diet when their domestication started. The Aurignacian peoples in Europe develop\nadvanced technology like fine stone blades, and the oldest human sculptures called \nVenus figurines from clay 31,000 years ago. Better tools means better tailoring."
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:25"
+        ]
+    },
+    {
+        "question": "How did the Last Glacial Maximum enable early humans to migrate into the Americas?",
+        "ground_truth_answer": "The Last Glacial Maximum reduced sea levels by 120 meters, turning the Bering Strait into the Bering Bridge. This allowed groups of humans to walk across the passage into North America and descend down the continent.",
+        "relevant_chunk_ids": [
+            "chunk_No:27"
+        ],
+        "response": "During the Last Glacial Maximum sea levels fell about 120 m, exposing a land connection where the modern Bering Strait now lies. This “Bering Bridge” let human groups walk from Asia into the New World, enabling their migration into the Americas.",
+        "retrieved_contexts": [
+            "And more caves for our ancestors to take over. Long before actual farming starts, \nNeolithic peoples in the Middle East understood they could control \nwhat could grow on their lands. These hunter-gatherer societies practiced \n'proto-farming' where they intentionally   gathered plants they liked to eat \nlike barley and helped them grow. The Last Glacial Maximum from 20,000 years ago reduced sea levels by 120 meters and \ncovered 25% of Earth's land in ice. But, it also allowed us to spread further \nthan ever before, including into the Americas. Today's Bering Strait was \na Bering Bridge back then, allowing hardy groups to walk across the \ndifficult passage into a new continent. Humans managed to quickly descend down \nthe Americas to the southern tip in only a few thousand years travelling \nfastest down the safer coastlines. They still had to traverse some \nextreme landscapes: titantic jungles,   immense mountains, searing deserts and \nbreathtaking plateaus, whicle encountering a number of savage super-predators like \nShort-face Bears and Saber Tooth Tigers. That must have really stretched their \nadaptability and survival skills."
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:27"
+        ]
+    },
+    {
+        "question": "Why is Göbekli Tepe considered significant in the timeline of human civilization?",
+        "ground_truth_answer": "Built 12,000 years ago in modern Turkey, Göbekli Tepe was a giant structure built with a level of collaboration that heralded modern civilization, marking a shift from wandering in isolated bands to settling in larger groups that shared resources, beliefs, and learnings.",
+        "relevant_chunk_ids": [
+            "chunk_No:29"
+        ],
+        "response": "Göbekli Tepe is significant because, built about 12,000 years ago, it demonstrates an unprecedented level of collaboration among people—shifting from isolated, wandering bands to larger, settled groups that shared learnings, beliefs, and resources—heralding the emergence of modern civilization.",
+        "retrieved_contexts": [
+            "We arrive at the year zero of the Human Era. 12,000 years ago people in modern turkey \nbuilt Gobekli Tepe, a giant structure, with a level of collaboration \nthat heralded modern civilization. Instead of wandering the world as isolated bands, we joined forces and settled in larger groups \nthat shared learnings, beliefs and resources."
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:29"
+        ]
+    },
+    {
+        "question": "In what ways did the development of written language impact early human societies?",
+        "ground_truth_answer": "Writing allowed humans to communicate across any distance, coordinate efforts for major construction, lay down laws in stone, store knowledge over centuries, and build up armies to decide the fate of nations.",
+        "relevant_chunk_ids": [
+            "chunk_No:30"
+        ],
+        "response": "The passage suggests that when early humans moved beyond simple depictions of nature to symbolic representations—such as the first paintings—and developed sophisticated spoken languages, they gained the ability to engage in complex behavior and highly capable communication. This new capacity allowed groups to:\n\n* **Exchange ideas and culture** across different human groups, fostering a shared sense of abstract thought and self‑awareness that was “engraved in our genes.”  \n* **Negotiate and trade** tangible items, exemplified by the 90,000‑year‑old piece of string that belonged to Neanderthals, implying that early humans could discuss and barter valuable objects.  \n\nThus, the emergence of written (or symbolic) language helped early societies coordinate, transmit cultural knowledge, and conduct trade with one another.",
+        "retrieved_contexts": [
+            "Instead of simple representations of nature, \nwe find the first symbolic paintings. Complex behaviour required \nequally capable communication. We very likely had languages we could \nuse to chat with other human groups. In fact, Neanderthals had this capability too, so might we have tried to chat \neach other up when we met? This capacity for culture and abstract \nthought is engraved in our genes. We can analyze DNA to determine what gives us \nour personality, and it's clear that creative self-awareness is a special feature \nwe have that other hominins lacked. The oldest piece of string is 90,000 years \nold, and it belonged to Neanderthals. Could we have asked to trade for it?"
+        ],
+        "retrieved_chunk_ids": [
+            "chunk_No:18"
+        ]
+    }
+]
