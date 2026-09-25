@@ -26,306 +26,299 @@ st.markdown(
     """
     <style>
 
-    /* ======================================================
-       MAIN APP
-       ====================================================== */
+    /* ============================================================
+    GLOBAL
+    ============================================================ */
+
+    :root {
+        --bg: #0f1117;
+        --surface: #171a21;
+        --surface-soft: #1c2029;
+        --border: #2a2f3a;
+
+        --text: #f1f3f5;
+        --text-secondary: #a5acb8;
+        --text-muted: #727b89;
+
+        --accent: #ff4b4b;
+        --accent-hover: #ff6262;
+
+        --success: #35c46a;
+    }
+
 
     .stApp {
         background:
-            radial-gradient(
-                circle at 20% 10%,
-                rgba(99, 102, 241, 0.12),
-                transparent 30%
-            ),
-            radial-gradient(
-                circle at 80% 20%,
-                rgba(168, 85, 247, 0.10),
-                transparent 30%
-            ),
-            #0b0f19;
+            linear-gradient(
+                180deg,
+                #0f1117 0%,
+                #11141b 55%,
+                #0f1117 100%
+            );
 
-        color: #f8fafc;
+        color: var(--text);
     }
 
+
+    /* ============================================================
+    MAIN CONTAINER
+    ============================================================ */
 
     .block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        max-width: 1100px;
+        max-width: 1050px;
+
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
 
 
-    /* ======================================================
-       HERO
-       ====================================================== */
+    /* ============================================================
+    HERO
+    ============================================================ */
 
     .hero {
         text-align: center;
-        padding-top: 70px;
-        padding-bottom: 30px;
+
+        padding-top: 65px;
+        padding-bottom: 35px;
     }
 
 
     .hero-badge {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
 
-        padding: 7px 15px;
+        padding: 6px 12px;
 
-        border-radius: 999px;
+        border-radius: 6px;
 
-        background: rgba(99, 102, 241, 0.12);
+        background: #1a1e27;
+        border: 1px solid #2b313c;
 
-        border: 1px solid rgba(129, 140, 248, 0.25);
+        color: #b9c0cc;
 
-        color: #a5b4fc;
-
-        font-size: 13px;
-
+        font-size: 12px;
         font-weight: 600;
 
-        margin-bottom: 20px;
+        letter-spacing: 0.2px;
+
+        margin-bottom: 22px;
     }
 
 
     .hero-title {
-        font-size: 56px;
+        font-size: 52px;
 
-        font-weight: 800;
+        font-weight: 750;
 
-        letter-spacing: -2px;
+        letter-spacing: -1.8px;
 
         line-height: 1.05;
 
-        margin-bottom: 20px;
+        color: #f5f6f8;
 
-        background:
-            linear-gradient(
-                90deg,
-                #ffffff,
-                #c7d2fe,
-                #a78bfa
-            );
-
-        -webkit-background-clip: text;
-
-        -webkit-text-fill-color: transparent;
+        margin-bottom: 18px;
     }
 
 
     .hero-subtitle {
-        font-size: 18px;
-
-        color: #94a3b8;
-
         max-width: 650px;
 
-        margin: auto;
+        margin: 0 auto;
+
+        color: var(--text-secondary);
+
+        font-size: 16px;
 
         line-height: 1.7;
     }
 
 
-    /* ======================================================
-       URL CARD
-       ====================================================== */
+    /* ============================================================
+    URL CARD
+    ============================================================ */
 
     .url-card {
-        background: rgba(15, 23, 42, 0.72);
+        background: var(--surface);
 
-        border: 1px solid rgba(148, 163, 184, 0.12);
+        border: 1px solid var(--border);
 
-        border-radius: 24px;
+        border-radius: 12px;
 
-        padding: 30px;
+        padding: 24px;
 
-        margin-top: 35px;
+        margin-top: 28px;
 
         box-shadow:
-            0 25px 60px rgba(0, 0, 0, 0.35);
-
-        backdrop-filter: blur(20px);
+            0 12px 30px rgba(0, 0, 0, 0.18);
     }
 
 
     .input-label {
-        color: #cbd5e1;
+        color: #d8dce2;
 
-        font-size: 14px;
+        font-size: 13px;
 
         font-weight: 600;
 
-        margin-bottom: 10px;
+        margin-bottom: 9px;
     }
 
 
-    /* ======================================================
-       STREAMLIT INPUT
-       ====================================================== */
+    /* ============================================================
+    TEXT INPUT
+    ============================================================ */
 
     div[data-baseweb="input"] {
+        background: #12151b;
 
-        background:
-            rgba(15, 23, 42, 0.90);
+        border-radius: 8px;
 
-        border-radius: 12px;
+        border: 1px solid #303641;
 
-        border:
-            1px solid rgba(148, 163, 184, 0.18);
+        transition:
+            border-color 0.18s ease,
+            box-shadow 0.18s ease;
+    }
+
+
+    div[data-baseweb="input"]:hover {
+        border-color: #414957;
     }
 
 
     div[data-baseweb="input"]:focus-within {
-
-        border-color:
-            rgba(129, 140, 248, 0.65);
+        border-color: #626b7a;
 
         box-shadow:
-            0 0 0 1px
-            rgba(129, 140, 248, 0.25);
+            0 0 0 1px rgba(255, 255, 255, 0.04);
     }
 
 
-    /* ======================================================
-       BUTTONS
-       ====================================================== */
+    /* ============================================================
+    BUTTONS
+    ============================================================ */
 
     .stButton > button {
+        height: 46px;
 
-        border-radius: 12px;
+        border-radius: 8px;
 
-        border:
-            1px solid rgba(129, 140, 248, 0.35);
+        border: 1px solid #ff4b4b;
 
-        background:
-            linear-gradient(
-                135deg,
-                #6366f1,
-                #8b5cf6
-            );
+        background: var(--accent);
 
         color: white;
 
-        font-weight: 700;
+        font-size: 14px;
 
-        height: 48px;
+        font-weight: 650;
 
         transition:
-            all 0.2s ease;
+            background 0.18s ease,
+            border-color 0.18s ease,
+            transform 0.18s ease;
     }
 
 
     .stButton > button:hover {
+        background: var(--accent-hover);
 
-        transform:
-            translateY(-2px);
+        border-color: var(--accent-hover);
 
-        box-shadow:
-            0 10px 30px
-            rgba(99, 102, 241, 0.30);
+        transform: translateY(-1px);
     }
 
 
-    /* ======================================================
-       FEATURE CARDS
-       ====================================================== */
+    .stButton > button:active {
+        transform: translateY(0);
+    }
+
+
+    /* ============================================================
+    FEATURE CARDS
+    ============================================================ */
 
     .feature-card {
+        height: 100%;
 
-        background:
-            rgba(15, 23, 42, 0.55);
+        background: var(--surface);
 
-        border:
-            1px solid
-            rgba(148, 163, 184, 0.10);
+        border: 1px solid var(--border);
 
-        border-radius: 18px;
+        border-radius: 12px;
 
         padding: 22px;
 
-        min-height: 175px;
+        min-height: 165px;
 
         transition:
-            all 0.25s ease;
+            border-color 0.2s ease,
+            background 0.2s ease;
     }
 
 
     .feature-card:hover {
+        background: #191d25;
 
-        transform:
-            translateY(-4px);
-
-        border-color:
-            rgba(129, 140, 248, 0.30);
-
-        box-shadow:
-            0 15px 35px
-            rgba(0, 0, 0, 0.25);
+        border-color: #3a414d;
     }
 
 
     .feature-icon {
+        font-size: 24px;
 
-        font-size: 28px;
-
-        margin-bottom: 12px;
+        margin-bottom: 14px;
     }
 
 
     .feature-title {
+        font-size: 15px;
 
-        font-size: 16px;
+        font-weight: 650;
 
-        font-weight: 700;
+        color: #e9ecf0;
 
-        color: #f8fafc;
-
-        margin-bottom: 7px;
+        margin-bottom: 8px;
     }
 
 
     .feature-text {
-
         font-size: 13px;
 
-        color: #94a3b8;
+        color: var(--text-secondary);
 
-        line-height: 1.6;
+        line-height: 1.65;
     }
 
 
-    /* ======================================================
-       LOADING
-       ====================================================== */
+    /* ============================================================
+    LOADING
+    ============================================================ */
 
     .loading-container {
-
         text-align: center;
 
-        padding-top: 100px;
+        padding-top: 90px;
 
         padding-bottom: 40px;
     }
 
 
     .loader {
-
-        width: 55px;
-
-        height: 55px;
+        width: 42px;
+        height: 42px;
 
         margin: auto;
 
         border-radius: 50%;
 
-        border:
-            4px solid
-            rgba(129, 140, 248, 0.15);
+        border: 3px solid #292e38;
 
-        border-top-color:
-            #818cf8;
+        border-top-color: #ff4b4b;
 
         animation:
-            spin 0.9s linear infinite;
+            spin 0.85s linear infinite;
     }
 
 
@@ -339,22 +332,20 @@ st.markdown(
 
 
     .loading-title {
+        font-size: 22px;
 
-        font-size: 25px;
+        font-weight: 650;
 
-        font-weight: 750;
-
-        color: #f8fafc;
+        color: #f1f3f5;
 
         margin-top: 20px;
     }
 
 
     .loading-text {
+        color: var(--text-secondary);
 
-        color: #94a3b8;
-
-        font-size: 14px;
+        font-size: 13px;
 
         margin-top: 8px;
 
@@ -362,137 +353,117 @@ st.markdown(
     }
 
 
-    /* ======================================================
-       CHAT HEADER
-       ====================================================== */
+    /* ============================================================
+    CHAT HEADER
+    ============================================================ */
 
     .chat-header {
-
         display: flex;
 
         align-items: center;
 
         justify-content: space-between;
 
-        padding: 18px 22px;
+        padding: 16px 19px;
 
-        margin-bottom: 25px;
+        margin-bottom: 20px;
 
-        border-radius: 18px;
+        border-radius: 10px;
 
-        background:
-            rgba(15, 23, 42, 0.75);
+        background: var(--surface);
 
-        border:
-            1px solid
-            rgba(148, 163, 184, 0.12);
-
-        backdrop-filter:
-            blur(15px);
+        border: 1px solid var(--border);
     }
 
 
     .chat-title {
+        font-size: 19px;
 
-        font-size: 21px;
+        font-weight: 650;
 
-        font-weight: 750;
-
-        color: #f8fafc;
+        color: #f0f2f5;
     }
 
 
     .chat-status {
-
         font-size: 12px;
 
-        color: #86efac;
+        color: #7ed99c;
 
         display: flex;
 
         align-items: center;
 
-        gap: 6px;
+        gap: 7px;
     }
 
 
     .status-dot {
-
         width: 7px;
-
         height: 7px;
 
         border-radius: 50%;
 
-        background: #22c55e;
-
-        box-shadow:
-            0 0 10px #22c55e;
+        background: var(--success);
     }
 
 
     .video-info {
+        display: inline-block;
 
-        padding: 8px 12px;
+        padding: 6px 9px;
 
-        border-radius: 10px;
+        border-radius: 6px;
 
-        background:
-            rgba(30, 41, 59, 0.55);
+        background: #12151b;
 
-        border:
-            1px solid
-            rgba(148, 163, 184, 0.10);
+        border: 1px solid #292f38;
 
-        color: #94a3b8;
+        color: var(--text-muted);
 
-        font-size: 12px;
+        font-size: 11px;
 
         margin-top: 7px;
     }
 
 
-    /* ======================================================
-       EMPTY CHAT
-       ====================================================== */
+    /* ============================================================
+    EMPTY CHAT
+    ============================================================ */
 
     .empty-chat {
-
         text-align: center;
 
-        padding-top: 90px;
+        padding-top: 95px;
 
-        padding-bottom: 70px;
+        padding-bottom: 80px;
     }
 
 
     .empty-icon {
+        font-size: 44px;
 
-        font-size: 55px;
-
-        margin-bottom: 15px;
+        margin-bottom: 14px;
     }
 
 
     .empty-title {
+        font-size: 22px;
 
-        font-size: 24px;
+        font-weight: 650;
 
-        font-weight: 750;
+        color: #eef0f3;
 
-        color: #f8fafc;
-
-        margin-bottom: 8px;
+        margin-bottom: 9px;
     }
 
 
     .empty-text {
-
-        color: #94a3b8;
+        color: var(--text-secondary);
 
         font-size: 14px;
 
-        max-width: 550px;
+        max-width: 530px;
 
         margin: auto;
 
@@ -500,56 +471,140 @@ st.markdown(
     }
 
 
-    /* ======================================================
-       CHAT INPUT
-       ====================================================== */
+    /* ============================================================
+    STREAMLIT CHAT
+    ============================================================ */
+
+    /* User message */
+
+    [data-testid="stChatMessage"]:has(
+        [data-testid="chatAvatarIcon-user"]
+    ) {
+        background: #181c23;
+
+        border-radius: 10px;
+
+        border: 1px solid #282e38;
+
+        padding: 4px 12px;
+    }
+
+
+    /* Assistant message */
+
+    [data-testid="stChatMessage"]:has(
+        [data-testid="chatAvatarIcon-assistant"]
+    ) {
+        background: #13161c;
+
+        border-radius: 10px;
+
+        border: 1px solid #222832;
+
+        padding: 4px 12px;
+    }
+
+
+    /* Chat input */
 
     [data-testid="stChatInput"] {
+        background: #15181f;
 
-        background:
-            rgba(15, 23, 42, 0.85);
+        border-radius: 10px;
 
-        border-radius: 16px;
+        border: 1px solid #303641;
     }
 
 
-    /* ======================================================
-       FOOTER
-       ====================================================== */
+    [data-testid="stChatInput"]:focus-within {
+        border-color: #4a5260;
+
+        box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+
+    /* ============================================================
+    ALERTS
+    ============================================================ */
+
+    [data-testid="stAlert"] {
+        border-radius: 8px;
+
+        border: 1px solid #303641;
+    }
+
+
+    /* ============================================================
+    PROGRESS BAR
+    ============================================================ */
+
+    [data-testid="stProgressBar"] > div > div {
+        background-color: #ff4b4b;
+    }
+
+
+    /* ============================================================
+    FOOTER
+    ============================================================ */
 
     .footer {
-
         text-align: center;
 
-        color: #64748b;
+        color: #626b78;
 
-        font-size: 12px;
+        font-size: 11px;
 
-        padding-top: 35px;
+        padding-top: 32px;
 
-        padding-bottom: 10px;
+        padding-bottom: 8px;
+
+        letter-spacing: 0.1px;
     }
 
 
-    /* ======================================================
-       RESPONSIVE
-       ====================================================== */
+    /* ============================================================
+    RESPONSIVE
+    ============================================================ */
 
     @media (max-width: 768px) {
 
-        .hero-title {
-
-            font-size: 40px;
+        .block-container {
+            padding-top: 1.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
-        .hero-subtitle {
-
-            font-size: 15px;
-        }
 
         .hero {
+            padding-top: 35px;
+        }
 
-            padding-top: 40px;
+
+        .hero-title {
+            font-size: 38px;
+
+            letter-spacing: -1.2px;
+        }
+
+
+        .hero-subtitle {
+            font-size: 14px;
+        }
+
+
+        .url-card {
+            padding: 18px;
+        }
+
+
+        .chat-header {
+            padding: 14px;
+        }
+
+
+        .chat-status {
+            display: none;
         }
 
     }
