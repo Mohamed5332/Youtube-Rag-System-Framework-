@@ -1,0 +1,29 @@
+services:
+
+  backend:
+    image: youtube-rag-backend:latest
+    container_name: youtube-rag-backend
+
+    env_file:
+      - .env
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./Datasets:/app/Datasets
+      - ./Temp_Chunks:/app/Temp_Chunks
+
+
+  frontend:
+    image: youtube-rag-frontend:latest
+    container_name: youtube-rag-frontend
+
+    environment:
+      FASTAPI_URL: http://backend:8000
+
+    ports:
+      - "8501:8501"
+
+    depends_on:
+      - backend
