@@ -1,130 +1,252 @@
+
 import streamlit as st
 import requests
-import time
-import os 
+import os
 from dotenv import load_dotenv
 
+
 # ============================================================
-# PAGE CONFIG
+# CONFIGURATION
 # ============================================================
 
 load_dotenv()
 
 st.set_page_config(
     page_title="YouTube RAG",
-    page_icon="🎥",
+    page_icon="▶",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
+FASTAPI_URL = os.getenv(
+    "FASTAPI_URL",
+    "http://localhost:8000"
+)
 
-FASTAPI_URL = os.getenv("FASTAPI_URL", 
-                        "http://localhost:8000")
 
+# ============================================================
+# CUSTOM CSS
+# ============================================================
 
 st.markdown(
     """
     <style>
 
-    /* ============================================================
-    GLOBAL
-    ============================================================ */
+    /* ========================================================
+       COLOR SYSTEM
+       ======================================================== */
 
     :root {
-        --bg: #0f1117;
-        --surface: #171a21;
-        --surface-soft: #1c2029;
-        --border: #2a2f3a;
 
-        --text: #f1f3f5;
-        --text-secondary: #a5acb8;
-        --text-muted: #727b89;
+        --bg: #F8FAFC;
 
-        --accent: #ff4b4b;
-        --accent-hover: #ff6262;
+        --card: #FFFFFF;
 
-        --success: #35c46a;
+        --text: #0F172A;
+
+        --text-secondary: #64748B;
+
+        --text-muted: #94A3B8;
+
+        --border: #E2E8F0;
+
+        /* Professional Blue */
+        --accent: #2563EB;
+
+        --accent-hover: #1D4ED8;
+
+        --accent-light: #EFF6FF;
+
+        --accent-border: #DBEAFE;
+
+        /* Success */
+        --success: #16A34A;
+
+        --success-bg: #F0FDF4;
+
+        --success-border: #DCFCE7;
     }
 
 
+    /* ========================================================
+       GLOBAL APP
+       ======================================================== */
+
     .stApp {
-        background:
-            linear-gradient(
-                180deg,
-                #0f1117 0%,
-                #11141b 55%,
-                #0f1117 100%
-            );
+
+        background: var(--bg);
 
         color: var(--text);
     }
 
 
-    /* ============================================================
-    MAIN CONTAINER
-    ============================================================ */
+    /* ========================================================
+       MAIN CONTAINER
+       ======================================================== */
 
     .block-container {
-        max-width: 1050px;
 
-        padding-top: 3rem;
+        max-width: 1100px;
+
+        padding-top: 1.5rem;
+
         padding-bottom: 3rem;
+
+        padding-left: 2rem;
+
+        padding-right: 2rem;
     }
 
 
-    /* ============================================================
-    HERO
-    ============================================================ */
+    /* ========================================================
+       GENERAL STREAMLIT SPACING
+       ======================================================== */
 
-    .hero {
-        text-align: center;
+    div[data-testid="stVerticalBlock"] {
 
-        padding-top: 65px;
-        padding-bottom: 35px;
+        gap: 0.6rem;
     }
 
 
-    .hero-badge {
-        display: inline-flex;
+    /* ========================================================
+       NAVIGATION
+       ======================================================== */
+
+    .navbar {
+
+        display: flex;
+
         align-items: center;
 
-        padding: 6px 12px;
+        justify-content: space-between;
 
-        border-radius: 6px;
+        padding: 8px 0 22px 0;
 
-        background: #1a1e27;
-        border: 1px solid #2b313c;
+        border-bottom: 1px solid var(--border);
 
-        color: #b9c0cc;
-
-        font-size: 12px;
-        font-weight: 600;
-
-        letter-spacing: 0.2px;
-
-        margin-bottom: 22px;
+        margin-bottom: 35px;
     }
 
 
-    .hero-title {
-        font-size: 52px;
+    .brand {
 
-        font-weight: 750;
+        display: flex;
 
-        letter-spacing: -1.8px;
+        align-items: center;
 
-        line-height: 1.05;
+        gap: 10px;
 
-        color: #f5f6f8;
+        color: var(--text);
+
+        font-size: 17px;
+
+        font-weight: 700;
+
+        letter-spacing: -0.2px;
+    }
+
+
+    .brand-icon {
+
+        width: 31px;
+
+        height: 31px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 8px;
+
+        background: var(--accent-light);
+
+        color: var(--accent);
+
+        font-size: 14px;
+
+        font-weight: 800;
+    }
+
+
+    .nav-links {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 24px;
+
+        color: var(--text-secondary);
+
+        font-size: 13px;
+
+        font-weight: 500;
+    }
+
+
+    /* ========================================================
+       HERO
+       ======================================================== */
+
+    .hero {
+
+        text-align: center;
+
+        padding-top: 45px;
+
+        padding-bottom: 25px;
+    }
+
+
+    .hero-eyebrow {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        padding: 6px 11px;
+
+        border: 1px solid var(--accent-border);
+
+        border-radius: 999px;
+
+        background: var(--accent-light);
+
+        color: var(--accent);
+
+        font-size: 12px;
+
+        font-weight: 600;
 
         margin-bottom: 18px;
     }
 
 
-    .hero-subtitle {
-        max-width: 650px;
+    .hero-title {
+
+        max-width: 780px;
 
         margin: 0 auto;
+
+        color: var(--text);
+
+        font-size: 48px;
+
+        line-height: 1.08;
+
+        letter-spacing: -1.8px;
+
+        font-weight: 750;
+    }
+
+
+    .hero-subtitle {
+
+        max-width: 650px;
+
+        margin: 18px auto 0 auto;
 
         color: var(--text-secondary);
 
@@ -134,191 +256,317 @@ st.markdown(
     }
 
 
-    /* ============================================================
-    URL CARD
-    ============================================================ */
+    /* ========================================================
+       URL CARD
+       ======================================================== */
 
     .url-card {
-        background: var(--surface);
 
-        border: 1px solid var(--border);
+        max-width: 850px;
 
-        border-radius: 12px;
+        margin: 35px auto 0 auto;
 
         padding: 24px;
 
-        margin-top: 28px;
+        background: var(--card);
+
+        border: 1px solid var(--border);
+
+        border-radius: 14px;
 
         box-shadow:
-            0 12px 30px rgba(0, 0, 0, 0.18);
+            0 8px 24px rgba(15, 23, 42, 0.05);
     }
 
 
-    .input-label {
-        color: #d8dce2;
+    .url-label {
+
+        margin-bottom: 9px;
+
+        color: var(--text);
 
         font-size: 13px;
 
-        font-weight: 600;
-
-        margin-bottom: 9px;
+        font-weight: 650;
     }
 
 
-    /* ============================================================
-    TEXT INPUT
-    ============================================================ */
+    .url-description {
+
+        margin-bottom: 14px;
+
+        color: var(--text-secondary);
+
+        font-size: 12px;
+    }
+
+
+    /* ========================================================
+       TEXT INPUT
+       ======================================================== */
 
     div[data-baseweb="input"] {
-        background: #12151b;
 
-        border-radius: 8px;
+        background: var(--card);
 
-        border: 1px solid #303641;
+        border: 1px solid var(--border);
+
+        border-radius: 9px;
 
         transition:
-            border-color 0.18s ease,
-            box-shadow 0.18s ease;
+            border-color 0.15s ease,
+            box-shadow 0.15s ease;
     }
 
 
     div[data-baseweb="input"]:hover {
-        border-color: #414957;
+
+        border-color: #CBD5E1;
     }
 
 
     div[data-baseweb="input"]:focus-within {
-        border-color: #626b7a;
+
+        border-color: var(--accent);
 
         box-shadow:
-            0 0 0 1px rgba(255, 255, 255, 0.04);
+            0 0 0 3px rgba(37, 99, 235, 0.08);
     }
 
 
-    /* ============================================================
-    BUTTONS
-    ============================================================ */
+    input {
+
+        color: var(--text) !important;
+    }
+
+
+    input::placeholder {
+
+        color: var(--text-muted) !important;
+    }
+
+
+    /* ========================================================
+       PRIMARY BUTTON
+       ======================================================== */
 
     .stButton > button {
-        height: 46px;
 
-        border-radius: 8px;
+        min-height: 44px;
 
-        border: 1px solid #ff4b4b;
+        border-radius: 9px;
+
+        border: 1px solid var(--accent);
 
         background: var(--accent);
 
-        color: white;
+        color: #FFFFFF;
 
-        font-size: 14px;
+        font-size: 13px;
 
         font-weight: 650;
 
         transition:
-            background 0.18s ease,
-            border-color 0.18s ease,
-            transform 0.18s ease;
+            background 0.15s ease,
+            border-color 0.15s ease,
+            transform 0.15s ease;
     }
 
 
     .stButton > button:hover {
+
         background: var(--accent-hover);
 
         border-color: var(--accent-hover);
+
+        color: #FFFFFF;
 
         transform: translateY(-1px);
     }
 
 
     .stButton > button:active {
+
         transform: translateY(0);
     }
 
 
-    /* ============================================================
-    FEATURE CARDS
-    ============================================================ */
+    /* ========================================================
+       CAPABILITIES
+       ======================================================== */
+
+    .capabilities {
+
+        max-width: 850px;
+
+        margin: 22px auto 0 auto;
+    }
+
+
+    .capability {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 7px;
+
+        color: var(--text-secondary);
+
+        font-size: 12px;
+    }
+
+
+    .capability-check {
+
+        color: var(--success);
+
+        font-weight: 700;
+    }
+
+
+    /* ========================================================
+       SECTION TITLE
+       ======================================================== */
+
+    .section-title {
+
+        margin-top: 80px;
+
+        margin-bottom: 7px;
+
+        text-align: center;
+
+        color: var(--text);
+
+        font-size: 22px;
+
+        font-weight: 700;
+
+        letter-spacing: -0.4px;
+    }
+
+
+    .section-subtitle {
+
+        text-align: center;
+
+        color: var(--text-secondary);
+
+        font-size: 13px;
+
+        margin-bottom: 24px;
+    }
+
+
+    /* ========================================================
+       FEATURE CARDS
+       ======================================================== */
 
     .feature-card {
+
         height: 100%;
 
-        background: var(--surface);
+        min-height: 175px;
+
+        padding: 22px;
+
+        background: var(--card);
 
         border: 1px solid var(--border);
 
         border-radius: 12px;
 
-        padding: 22px;
-
-        min-height: 165px;
-
         transition:
-            border-color 0.2s ease,
-            background 0.2s ease;
+            border-color 0.15s ease,
+            box-shadow 0.15s ease;
     }
 
 
     .feature-card:hover {
-        background: #191d25;
 
-        border-color: #3a414d;
+        border-color: #CBD5E1;
+
+        box-shadow:
+            0 5px 16px rgba(15, 23, 42, 0.05);
     }
 
 
-    .feature-icon {
-        font-size: 24px;
+    .feature-number {
 
-        margin-bottom: 14px;
+        margin-bottom: 17px;
+
+        color: var(--accent);
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        letter-spacing: 0.5px;
     }
 
 
     .feature-title {
+
+        margin-bottom: 8px;
+
+        color: var(--text);
+
         font-size: 15px;
 
         font-weight: 650;
-
-        color: #e9ecf0;
-
-        margin-bottom: 8px;
     }
 
 
-    .feature-text {
-        font-size: 13px;
+    .feature-description {
 
         color: var(--text-secondary);
+
+        font-size: 13px;
 
         line-height: 1.65;
     }
 
 
-    /* ============================================================
-    LOADING
-    ============================================================ */
+    /* ========================================================
+       LOADING
+       ======================================================== */
 
-    .loading-container {
+    .loading-card {
+
+        max-width: 650px;
+
+        margin: 70px auto;
+
+        padding: 35px;
+
         text-align: center;
 
-        padding-top: 90px;
+        background: var(--card);
 
-        padding-bottom: 40px;
+        border: 1px solid var(--border);
+
+        border-radius: 14px;
     }
 
 
     .loader {
-        width: 42px;
-        height: 42px;
 
-        margin: auto;
+        width: 38px;
+
+        height: 38px;
+
+        margin: 0 auto 20px auto;
 
         border-radius: 50%;
 
-        border: 3px solid #292e38;
+        border: 3px solid var(--accent-border);
 
-        border-top-color: #ff4b4b;
+        border-top-color: var(--accent);
 
-        animation:
-            spin 0.85s linear infinite;
+        animation: spin 0.8s linear infinite;
     }
 
 
@@ -327,80 +575,141 @@ st.markdown(
         to {
             transform: rotate(360deg);
         }
-
     }
 
 
     .loading-title {
-        font-size: 22px;
 
-        font-weight: 650;
+        color: var(--text);
 
-        color: #f1f3f5;
+        font-size: 19px;
 
-        margin-top: 20px;
+        font-weight: 700;
+
+        margin-bottom: 7px;
     }
 
 
-    .loading-text {
+    .loading-description {
+
         color: var(--text-secondary);
 
         font-size: 13px;
-
-        margin-top: 8px;
 
         line-height: 1.6;
     }
 
 
-    /* ============================================================
-    CHAT HEADER
-    ============================================================ */
+    /* ========================================================
+       CHAT HEADER
+       ======================================================== */
 
     .chat-header {
+
         display: flex;
 
         align-items: center;
 
         justify-content: space-between;
 
-        padding: 16px 19px;
+        padding: 17px 20px;
 
-        margin-bottom: 20px;
+        margin-bottom: 22px;
 
-        border-radius: 10px;
-
-        background: var(--surface);
+        background: var(--card);
 
         border: 1px solid var(--border);
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 4px 14px rgba(15, 23, 42, 0.035);
+    }
+
+
+    .chat-brand {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 11px;
+    }
+
+
+    .chat-icon {
+
+        width: 36px;
+
+        height: 36px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 9px;
+
+        background: var(--accent-light);
+
+        color: var(--accent);
+
+        font-size: 15px;
+
+        font-weight: 700;
     }
 
 
     .chat-title {
-        font-size: 19px;
 
-        font-weight: 650;
+        color: var(--text);
 
-        color: #f0f2f5;
+        font-size: 15px;
+
+        font-weight: 700;
     }
 
 
-    .chat-status {
-        font-size: 12px;
+    .chat-video-id {
 
-        color: #7ed99c;
+        margin-top: 3px;
+
+        color: var(--text-muted);
+
+        font-size: 11px;
+    }
+
+
+    .ready-status {
 
         display: flex;
 
         align-items: center;
 
         gap: 7px;
+
+        padding: 6px 10px;
+
+        border-radius: 999px;
+
+        background: var(--success-bg);
+
+        border: 1px solid var(--success-border);
+
+        color: var(--success);
+
+        font-size: 11px;
+
+        font-weight: 600;
     }
 
 
-    .status-dot {
-        width: 7px;
-        height: 7px;
+    .ready-dot {
+
+        width: 6px;
+
+        height: 6px;
 
         border-radius: 50%;
 
@@ -408,202 +717,218 @@ st.markdown(
     }
 
 
-    .video-info {
-        display: inline-block;
+    /* ========================================================
+       EMPTY CHAT
+       ======================================================== */
 
-        padding: 6px 9px;
+    .chat-empty {
 
-        border-radius: 6px;
+        max-width: 650px;
 
-        background: #12151b;
+        margin: 80px auto;
 
-        border: 1px solid #292f38;
-
-        color: var(--text-muted);
-
-        font-size: 11px;
-
-        margin-top: 7px;
-    }
-
-
-    /* ============================================================
-    EMPTY CHAT
-    ============================================================ */
-
-    .empty-chat {
         text-align: center;
-
-        padding-top: 95px;
-
-        padding-bottom: 80px;
     }
 
 
-    .empty-icon {
-        font-size: 44px;
+    .chat-empty-icon {
 
-        margin-bottom: 14px;
+        width: 52px;
+
+        height: 52px;
+
+        margin: 0 auto 18px auto;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 14px;
+
+        background: var(--accent-light);
+
+        color: var(--accent);
+
+        font-size: 20px;
+
+        font-weight: 700;
     }
 
 
-    .empty-title {
-        font-size: 22px;
+    .chat-empty-title {
 
-        font-weight: 650;
+        color: var(--text);
 
-        color: #eef0f3;
+        font-size: 21px;
 
-        margin-bottom: 9px;
+        font-weight: 700;
+
+        margin-bottom: 8px;
     }
 
 
-    .empty-text {
+    .chat-empty-text {
+
+        max-width: 560px;
+
+        margin: 0 auto;
+
         color: var(--text-secondary);
 
-        font-size: 14px;
-
-        max-width: 530px;
-
-        margin: auto;
+        font-size: 13px;
 
         line-height: 1.7;
     }
 
 
-    /* ============================================================
-    STREAMLIT CHAT
-    ============================================================ */
+    /* ========================================================
+       CHAT MESSAGES
+       ======================================================== */
 
-    /* User message */
+    [data-testid="stChatMessage"] {
+
+        border-radius: 12px !important;
+
+        border: 1px solid var(--border);
+
+        margin-bottom: 10px;
+
+        padding: 7px 13px;
+    }
+
 
     [data-testid="stChatMessage"]:has(
         [data-testid="chatAvatarIcon-user"]
     ) {
-        background: #181c23;
 
-        border-radius: 10px;
-
-        border: 1px solid #282e38;
-
-        padding: 4px 12px;
+        background: var(--accent-light);
     }
 
-
-    /* Assistant message */
 
     [data-testid="stChatMessage"]:has(
         [data-testid="chatAvatarIcon-assistant"]
     ) {
-        background: #13161c;
 
-        border-radius: 10px;
-
-        border: 1px solid #222832;
-
-        padding: 4px 12px;
+        background: var(--card);
     }
 
 
-    /* Chat input */
+    /* ========================================================
+       CHAT INPUT
+       ======================================================== */
 
     [data-testid="stChatInput"] {
-        background: #15181f;
 
-        border-radius: 10px;
+        background: var(--card);
 
-        border: 1px solid #303641;
+        border: 1px solid var(--border);
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 5px 20px rgba(15, 23, 42, 0.06);
     }
 
 
     [data-testid="stChatInput"]:focus-within {
-        border-color: #4a5260;
+
+        border-color: var(--accent);
 
         box-shadow:
-            0 0 0 1px rgba(255, 255, 255, 0.03);
+            0 0 0 3px rgba(37, 99, 235, 0.08);
     }
 
 
-    /* ============================================================
-    ALERTS
-    ============================================================ */
+    /* ========================================================
+       ALERTS
+       ======================================================== */
 
     [data-testid="stAlert"] {
-        border-radius: 8px;
 
-        border: 1px solid #303641;
+        border-radius: 9px;
     }
 
 
-    /* ============================================================
-    PROGRESS BAR
-    ============================================================ */
+    /* ========================================================
+       PROGRESS BAR
+       ======================================================== */
 
     [data-testid="stProgressBar"] > div > div {
-        background-color: #ff4b4b;
+
+        background: var(--accent);
     }
 
 
-    /* ============================================================
-    FOOTER
-    ============================================================ */
+    /* ========================================================
+       FOOTER
+       ======================================================== */
 
     .footer {
+
+        margin-top: 65px;
+
+        padding-top: 20px;
+
+        border-top: 1px solid var(--border);
+
         text-align: center;
 
-        color: #626b78;
+        color: var(--text-muted);
 
         font-size: 11px;
-
-        padding-top: 32px;
-
-        padding-bottom: 8px;
-
-        letter-spacing: 0.1px;
     }
 
 
-    /* ============================================================
-    RESPONSIVE
-    ============================================================ */
+    /* ========================================================
+       MOBILE
+       ======================================================== */
 
     @media (max-width: 768px) {
 
         .block-container {
-            padding-top: 1.5rem;
+
             padding-left: 1rem;
+
             padding-right: 1rem;
         }
 
 
         .hero {
-            padding-top: 35px;
+
+            padding-top: 25px;
         }
 
 
         .hero-title {
-            font-size: 38px;
+
+            font-size: 36px;
 
             letter-spacing: -1.2px;
         }
 
 
         .hero-subtitle {
+
             font-size: 14px;
         }
 
 
         .url-card {
+
             padding: 18px;
         }
 
 
-        .chat-header {
-            padding: 14px;
+        .nav-links {
+
+            display: none;
         }
 
 
-        .chat-status {
+        .ready-status {
+
             display: none;
         }
 
@@ -657,9 +982,11 @@ def prepare_video(youtube_url):
         if response.status_code != 200:
 
             try:
+
                 error = response.json()
 
             except Exception:
+
                 error = response.text
 
             return False, error
@@ -769,60 +1096,108 @@ def reset_app():
 
 
 # ============================================================
-# URL PAGE
+# NAVBAR
+# ============================================================
+
+st.markdown(
+    """
+    <div class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ▶
+            </div>
+
+            YouTube RAG
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <span>
+                AI Video Intelligence
+            </span>
+
+            <span>
+                RAG System
+            </span>
+
+        </div>
+
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# ============================================================
+# LANDING PAGE
 # ============================================================
 
 if st.session_state.stage == "url":
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # HERO
-    # --------------------------------------------------------
+    # ========================================================
 
-    st.html(
+    st.markdown(
         """
         <div class="hero">
 
-            <div class="hero-badge">
-                ✦ AI-Powered Video Intelligence
+            <div class="hero-eyebrow">
+                AI-powered video understanding
             </div>
+
 
             <div class="hero-title">
-                Talk to Any YouTube Video
+                Understand any YouTube video.
             </div>
 
+
             <div class="hero-subtitle">
-                Transform a YouTube video into an intelligent
-                conversational knowledge base. Ask questions,
-                explore ideas, and understand the content
-                through your RAG-powered AI assistant.
+                Ask questions and get answers grounded
+                in the video's actual content using
+                retrieval-augmented generation.
             </div>
 
         </div>
-        """
+        """,
+
+        unsafe_allow_html=True
     )
 
 
-    # --------------------------------------------------------
-    # URL CARD LABEL
-    # --------------------------------------------------------
+    # ========================================================
+    # URL CARD
+    # ========================================================
 
-    st.html(
+    st.markdown(
         """
         <div class="url-card">
 
-            <div class="input-label">
-                YouTube Video URL
+            <div class="url-label">
+                YouTube video
+            </div>
+
+
+            <div class="url-description">
+                Paste a public YouTube URL to build
+                a searchable knowledge base.
             </div>
 
         </div>
-        """
+        """,
+
+        unsafe_allow_html=True
     )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # URL INPUT
-    # --------------------------------------------------------
+    # ========================================================
 
     youtube_url = st.text_input(
 
@@ -835,33 +1210,84 @@ if st.session_state.stage == "url":
     )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # ANALYZE BUTTON
-    # --------------------------------------------------------
+    # ========================================================
 
-    button_col1, button_col2, button_col3 = st.columns(
-        [1, 2, 1]
+    button_left, button_center, button_right = st.columns(
+        [2, 2, 2]
     )
 
 
-    with button_col2:
+    with button_center:
 
-        start_button = st.button(
+        analyze_button = st.button(
 
-            "🚀 Analyze Video",
+            "Analyze video",
 
             use_container_width=True
         )
 
 
-    # --------------------------------------------------------
-    # PROCESS VIDEO
-    # --------------------------------------------------------
+    # ========================================================
+    # CAPABILITIES
+    # ========================================================
 
-    if start_button:
+    st.markdown(
+        """
+        <div class="capabilities">
+
+            <div style="
+                display:flex;
+                justify-content:center;
+                gap:28px;
+                flex-wrap:wrap;
+            ">
+
+                <div class="capability">
+                    <span class="capability-check">✓</span>
+                    Transcript retrieval
+                </div>
+
+
+                <div class="capability">
+                    <span class="capability-check">✓</span>
+                    Semantic search
+                </div>
+
+
+                <div class="capability">
+                    <span class="capability-check">✓</span>
+                    Hybrid retrieval
+                </div>
+
+
+                <div class="capability">
+                    <span class="capability-check">✓</span>
+                    Context-grounded answers
+                </div>
+
+            </div>
+
+        </div>
+        """,
+
+        unsafe_allow_html=True
+    )
+
+
+    # ========================================================
+    # PROCESS VIDEO
+    # ========================================================
+
+    if analyze_button:
 
         youtube_url = youtube_url.strip()
 
+
+        # ----------------------------------------------------
+        # VALIDATE URL
+        # ----------------------------------------------------
 
         if not youtube_url:
 
@@ -885,33 +1311,44 @@ if st.session_state.stage == "url":
             st.stop()
 
 
+        # ----------------------------------------------------
+        # SAVE URL
+        # ----------------------------------------------------
+
         st.session_state.youtube_url = youtube_url
 
 
-        loading_area = st.empty()
+        # ----------------------------------------------------
+        # LOADING
+        # ----------------------------------------------------
+
+        loading_placeholder = st.empty()
 
 
-        with loading_area.container():
+        with loading_placeholder.container():
 
-
-            st.html(
+            st.markdown(
                 """
-                <div class="loading-container">
+                <div class="loading-card">
 
                     <div class="loader"></div>
 
+
                     <div class="loading-title">
-                        Preparing your AI workspace
+                        Preparing your video
                     </div>
 
-                    <div class="loading-text">
-                        Your video is being processed.
-                        This may take a little while
-                        for a new video.
+
+                    <div class="loading-description">
+                        The RAG pipeline is processing
+                        the video and preparing it for
+                        question answering.
                     </div>
 
                 </div>
-                """
+                """,
+
+                unsafe_allow_html=True
             )
 
 
@@ -926,22 +1363,10 @@ if st.session_state.stage == "url":
 
             progress.progress(
 
-                15,
+                20,
 
                 text=
                 "Connecting to FastAPI..."
-            )
-
-
-            time.sleep(0.2)
-
-
-            progress.progress(
-
-                30,
-
-                text=
-                "Preparing video pipeline..."
             )
 
 
@@ -954,6 +1379,10 @@ if st.session_state.stage == "url":
             )
 
 
+            # ------------------------------------------------
+            # SUCCESS
+            # ------------------------------------------------
+
             if success:
 
                 progress.progress(
@@ -961,15 +1390,14 @@ if st.session_state.stage == "url":
                     100,
 
                     text=
-                    "AI workspace ready!"
+                    "Video ready."
                 )
 
 
-                time.sleep(0.5)
-
-
                 st.session_state.video_id = (
+
                     result["video_id"]
+
                 )
 
 
@@ -982,6 +1410,10 @@ if st.session_state.stage == "url":
                 st.rerun()
 
 
+            # ------------------------------------------------
+            # ERROR
+            # ------------------------------------------------
+
             else:
 
                 progress.empty()
@@ -992,126 +1424,140 @@ if st.session_state.stage == "url":
                 )
 
 
-    # --------------------------------------------------------
-    # SPACE
-    # --------------------------------------------------------
+    # ========================================================
+    # HOW IT WORKS
+    # ========================================================
 
-    st.html(
-        "<div style='height: 20px;'></div>"
+    st.markdown(
+        """
+        <div class="section-title">
+            How it works
+        </div>
+
+
+        <div class="section-subtitle">
+            From YouTube URL to conversational knowledge.
+        </div>
+        """,
+
+        unsafe_allow_html=True
     )
 
-
-    # --------------------------------------------------------
-    # FEATURE CARDS
-    # --------------------------------------------------------
 
     col1, col2, col3 = st.columns(3)
 
 
     # ========================================================
-    # CARD 1
+    # STEP 01
     # ========================================================
 
     with col1:
 
-        st.html(
+        st.markdown(
             """
             <div class="feature-card">
 
-                <div class="feature-icon">
-                    🧠
+                <div class="feature-number">
+                    01
                 </div>
+
 
                 <div class="feature-title">
-                    Semantic Understanding
+                    Video ingestion
                 </div>
 
-                <div class="feature-text">
-                    Ask natural-language questions
-                    and retrieve the most relevant
-                    information from the video's
-                    content.
+
+                <div class="feature-description">
+                    The system retrieves the video's
+                    transcript and prepares the content
+                    for semantic processing.
                 </div>
 
             </div>
-            """
+            """,
+
+            unsafe_allow_html=True
         )
 
 
     # ========================================================
-    # CARD 2
+    # STEP 02
     # ========================================================
 
     with col2:
 
-        st.html(
+        st.markdown(
             """
             <div class="feature-card">
 
-                <div class="feature-icon">
-                    🔎
+                <div class="feature-number">
+                    02
                 </div>
+
 
                 <div class="feature-title">
-                    Hybrid Retrieval
+                    Intelligent retrieval
                 </div>
 
-                <div class="feature-text">
-                    Your backend combines semantic
-                    retrieval and keyword-based
-                    retrieval to improve contextual
-                    search.
+
+                <div class="feature-description">
+                    Relevant chunks are retrieved using
+                    semantic and keyword-based retrieval,
+                    followed by reranking.
                 </div>
 
             </div>
-            """
+            """,
+
+            unsafe_allow_html=True
         )
 
 
     # ========================================================
-    # CARD 3
+    # STEP 03
     # ========================================================
 
     with col3:
 
-        st.html(
+        st.markdown(
             """
             <div class="feature-card">
 
-                <div class="feature-icon">
-                    💬
+                <div class="feature-number">
+                    03
                 </div>
+
 
                 <div class="feature-title">
-                    Conversational AI
+                    Grounded answer
                 </div>
 
-                <div class="feature-text">
-                    Continue asking questions and
-                    explore the video naturally
-                    through an interactive AI chat
-                    interface.
+
+                <div class="feature-description">
+                    The language model generates an answer
+                    using the retrieved context from
+                    the video's content.
                 </div>
 
             </div>
-            """
+            """,
+
+            unsafe_allow_html=True
         )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # FOOTER
-    # --------------------------------------------------------
+    # ========================================================
 
-    st.html(
+    st.markdown(
         """
         <div class="footer">
-
-            YouTube RAG Intelligence System
-            · FastAPI + Streamlit + Chroma
-            + Ollama + Groq
-
+            YouTube RAG · Retrieval-Augmented Video Intelligence
         </div>
-        """
+        """,
+
+        unsafe_allow_html=True
     )
 
 
@@ -1122,54 +1568,57 @@ if st.session_state.stage == "url":
 elif st.session_state.stage == "chat":
 
 
-    # --------------------------------------------------------
-    # HEADER
-    # --------------------------------------------------------
+    # ========================================================
+    # CHAT HEADER
+    # ========================================================
 
-    header_col1, header_col2 = st.columns(
+    header_left, header_right = st.columns(
         [5, 1]
     )
 
 
-    # ========================================================
-    # HEADER LEFT
-    # ========================================================
+    with header_left:
 
-    with header_col1:
-
-        st.html(
+        st.markdown(
             f"""
             <div class="chat-header">
 
-                <div>
+                <div class="chat-brand">
 
-                    <div class="chat-title">
-                        🎥 YouTube AI Assistant
+                    <div class="chat-icon">
+                        ▶
                     </div>
 
-                    <div class="video-info">
 
-                        Video ID:
+                    <div>
 
-                        <strong>
+                        <div class="chat-title">
+                            YouTube RAG
+                        </div>
+
+
+                        <div class="chat-video-id">
+                            Video ID:
                             {st.session_state.video_id}
-                        </strong>
+                        </div>
 
                     </div>
 
                 </div>
 
 
-                <div class="chat-status">
+                <div class="ready-status">
 
-                    <span class="status-dot"></span>
+                    <span class="ready-dot"></span>
 
-                    RAG Ready
+                    RAG ready
 
                 </div>
 
             </div>
-            """
+            """,
+
+            unsafe_allow_html=True
         )
 
 
@@ -1177,10 +1626,12 @@ elif st.session_state.stage == "chat":
     # NEW VIDEO BUTTON
     # ========================================================
 
-    with header_col2:
+    with header_right:
 
         if st.button(
-            "＋ New Video",
+
+            "New video",
+
             use_container_width=True
         ):
 
@@ -1189,39 +1640,43 @@ elif st.session_state.stage == "chat":
             st.rerun()
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # EMPTY CHAT
-    # --------------------------------------------------------
+    # ========================================================
 
     if not st.session_state.messages:
 
-        st.html(
+        st.markdown(
             """
-            <div class="empty-chat">
+            <div class="chat-empty">
 
-                <div class="empty-icon">
-                    ✨
+                <div class="chat-empty-icon">
+                    Q
                 </div>
 
-                <div class="empty-title">
-                    Your video is ready
+
+                <div class="chat-empty-title">
+                    Ask about this video
                 </div>
 
-                <div class="empty-text">
-                    Ask anything about the video.
-                    Try asking about the main idea,
-                    specific concepts, explanations,
-                    comparisons, or important details.
+
+                <div class="chat-empty-text">
+                    Ask about the main ideas, specific
+                    concepts, explanations, comparisons,
+                    examples, or any detail discussed
+                    in the video.
                 </div>
 
             </div>
-            """
+            """,
+
+            unsafe_allow_html=True
         )
 
 
-    # --------------------------------------------------------
-    # DISPLAY CHAT HISTORY
-    # --------------------------------------------------------
+    # ========================================================
+    # CHAT HISTORY
+    # ========================================================
 
     for message in st.session_state.messages:
 
@@ -1234,18 +1689,19 @@ elif st.session_state.stage == "chat":
             )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # CHAT INPUT
-    # --------------------------------------------------------
+    # ========================================================
 
     question = st.chat_input(
+
         "Ask something about this video..."
     )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # PROCESS QUESTION
-    # --------------------------------------------------------
+    # ========================================================
 
     if question:
 
@@ -1258,17 +1714,23 @@ elif st.session_state.stage == "chat":
 
 
         # ----------------------------------------------------
-        # USER MESSAGE
+        # SAVE USER MESSAGE
         # ----------------------------------------------------
 
         st.session_state.messages.append(
+
             {
                 "role": "user",
 
                 "content": question
             }
+
         )
 
+
+        # ----------------------------------------------------
+        # DISPLAY USER MESSAGE
+        # ----------------------------------------------------
 
         with st.chat_message("user"):
 
@@ -1276,16 +1738,14 @@ elif st.session_state.stage == "chat":
 
 
         # ----------------------------------------------------
-        # ASSISTANT
+        # GENERATE ANSWER
         # ----------------------------------------------------
 
         with st.chat_message("assistant"):
 
-
             with st.spinner(
                 "Searching the video..."
             ):
-
 
                 success, answer = ask_question(
                     question
@@ -1302,11 +1762,13 @@ elif st.session_state.stage == "chat":
 
 
                 st.session_state.messages.append(
+
                     {
                         "role": "assistant",
 
                         "content": answer
                     }
+
                 )
 
 
@@ -1319,16 +1781,17 @@ elif st.session_state.stage == "chat":
                 st.error(answer)
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # FOOTER
-    # --------------------------------------------------------
+    # ========================================================
 
-    st.html(
+    st.markdown(
         """
         <div class="footer">
-
-            Powered by your RAG pipeline
-
+            Answers generated from retrieved video context
         </div>
-        """
+        """,
+
+        unsafe_allow_html=True
     )
+
