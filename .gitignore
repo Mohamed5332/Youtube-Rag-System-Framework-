@@ -1,0 +1,17 @@
+.env
+
+__pycache__/
+*.pyc
+
+.vscode/
+env/
+
+Datasets/
+Temp_Chunks/
+Databases/
+Chunks/
+*.pt
+*.pth
+*.bin
+
+.ipynb_checkpoints/
