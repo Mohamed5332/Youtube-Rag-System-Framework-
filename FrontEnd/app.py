@@ -28,43 +28,43 @@ FASTAPI_URL = os.getenv(
 # CUSTOM CSS
 # ============================================================
 
-st.markdown(
+st.html(
     """
     <style>
 
     /* ========================================================
-       COLOR SYSTEM
+       DARK AI COLOR SYSTEM
        ======================================================== */
 
     :root {
 
-        --bg: #F8FAFC;
+        --bg: #0B1120;
 
-        --card: #FFFFFF;
+        --card: #111827;
 
-        --text: #0F172A;
+        --card-hover: #172033;
 
-        --text-secondary: #64748B;
+        --text: #F8FAFC;
 
-        --text-muted: #94A3B8;
+        --text-secondary: #94A3B8;
 
-        --border: #E2E8F0;
+        --text-muted: #64748B;
 
-        /* Professional Blue */
-        --accent: #2563EB;
+        --border: #1E293B;
 
-        --accent-hover: #1D4ED8;
+        --accent: #3B82F6;
 
-        --accent-light: #EFF6FF;
+        --accent-hover: #60A5FA;
 
-        --accent-border: #DBEAFE;
+        --accent-light: #172554;
 
-        /* Success */
-        --success: #16A34A;
+        --accent-border: #1E40AF;
 
-        --success-bg: #F0FDF4;
+        --success: #22C55E;
 
-        --success-border: #DCFCE7;
+        --success-bg: #052E16;
+
+        --success-border: #166534;
     }
 
 
@@ -162,7 +162,7 @@ st.markdown(
 
         background: var(--accent-light);
 
-        color: var(--accent);
+        color: var(--accent-hover);
 
         font-size: 14px;
 
@@ -214,7 +214,7 @@ st.markdown(
 
         background: var(--accent-light);
 
-        color: var(--accent);
+        color: var(--accent-hover);
 
         font-size: 12px;
 
@@ -275,7 +275,7 @@ st.markdown(
         border-radius: 14px;
 
         box-shadow:
-            0 8px 24px rgba(15, 23, 42, 0.05);
+            0 10px 30px rgba(0, 0, 0, 0.25);
     }
 
 
@@ -319,9 +319,15 @@ st.markdown(
     }
 
 
+    div[data-baseweb="input"] > div {
+
+        background: var(--card);
+    }
+
+
     div[data-baseweb="input"]:hover {
 
-        border-color: #CBD5E1;
+        border-color: #334155;
     }
 
 
@@ -330,13 +336,15 @@ st.markdown(
         border-color: var(--accent);
 
         box-shadow:
-            0 0 0 3px rgba(37, 99, 235, 0.08);
+            0 0 0 3px rgba(59, 130, 246, 0.15);
     }
 
 
     input {
 
         color: var(--text) !important;
+
+        background: transparent !important;
     }
 
 
@@ -481,16 +489,19 @@ st.markdown(
 
         transition:
             border-color 0.15s ease,
+            background 0.15s ease,
             box-shadow 0.15s ease;
     }
 
 
     .feature-card:hover {
 
-        border-color: #CBD5E1;
+        background: var(--card-hover);
+
+        border-color: #334155;
 
         box-shadow:
-            0 5px 16px rgba(15, 23, 42, 0.05);
+            0 8px 25px rgba(0, 0, 0, 0.25);
     }
 
 
@@ -498,7 +509,7 @@ st.markdown(
 
         margin-bottom: 17px;
 
-        color: var(--accent);
+        color: var(--accent-hover);
 
         font-size: 12px;
 
@@ -549,6 +560,9 @@ st.markdown(
         border: 1px solid var(--border);
 
         border-radius: 14px;
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.25);
     }
 
 
@@ -562,7 +576,7 @@ st.markdown(
 
         border-radius: 50%;
 
-        border: 3px solid var(--accent-border);
+        border: 3px solid var(--accent-light);
 
         border-top-color: var(--accent);
 
@@ -623,7 +637,7 @@ st.markdown(
         border-radius: 12px;
 
         box-shadow:
-            0 4px 14px rgba(15, 23, 42, 0.035);
+            0 6px 20px rgba(0, 0, 0, 0.2);
     }
 
 
@@ -653,7 +667,7 @@ st.markdown(
 
         background: var(--accent-light);
 
-        color: var(--accent);
+        color: var(--accent-hover);
 
         font-size: 15px;
 
@@ -749,7 +763,7 @@ st.markdown(
 
         background: var(--accent-light);
 
-        color: var(--accent);
+        color: var(--accent-hover);
 
         font-size: 20px;
 
@@ -796,6 +810,8 @@ st.markdown(
         margin-bottom: 10px;
 
         padding: 7px 13px;
+
+        background: var(--card);
     }
 
 
@@ -828,7 +844,21 @@ st.markdown(
         border-radius: 12px;
 
         box-shadow:
-            0 5px 20px rgba(15, 23, 42, 0.06);
+            0 6px 22px rgba(0, 0, 0, 0.25);
+    }
+
+
+    [data-testid="stChatInput"] textarea {
+
+        color: var(--text) !important;
+
+        background: transparent !important;
+    }
+
+
+    [data-testid="stChatInput"] textarea::placeholder {
+
+        color: var(--text-muted) !important;
     }
 
 
@@ -837,7 +867,7 @@ st.markdown(
         border-color: var(--accent);
 
         box-shadow:
-            0 0 0 3px rgba(37, 99, 235, 0.08);
+            0 0 0 3px rgba(59, 130, 246, 0.15);
     }
 
 
@@ -935,8 +965,7 @@ st.markdown(
     }
 
     </style>
-    """,
-    unsafe_allow_html=True
+    """
 )
 
 
@@ -1099,7 +1128,7 @@ def reset_app():
 # NAVBAR
 # ============================================================
 
-st.markdown(
+st.html(
     """
     <div class="navbar">
 
@@ -1127,8 +1156,7 @@ st.markdown(
         </div>
 
     </div>
-    """,
-    unsafe_allow_html=True
+    """
 )
 
 
@@ -1143,7 +1171,7 @@ if st.session_state.stage == "url":
     # HERO
     # ========================================================
 
-    st.markdown(
+    st.html(
         """
         <div class="hero">
 
@@ -1164,9 +1192,7 @@ if st.session_state.stage == "url":
             </div>
 
         </div>
-        """,
-
-        unsafe_allow_html=True
+        """
     )
 
 
@@ -1174,7 +1200,7 @@ if st.session_state.stage == "url":
     # URL CARD
     # ========================================================
 
-    st.markdown(
+    st.html(
         """
         <div class="url-card">
 
@@ -1189,9 +1215,7 @@ if st.session_state.stage == "url":
             </div>
 
         </div>
-        """,
-
-        unsafe_allow_html=True
+        """
     )
 
 
@@ -1233,7 +1257,7 @@ if st.session_state.stage == "url":
     # CAPABILITIES
     # ========================================================
 
-    st.markdown(
+    st.html(
         """
         <div class="capabilities">
 
@@ -1270,9 +1294,7 @@ if st.session_state.stage == "url":
             </div>
 
         </div>
-        """,
-
-        unsafe_allow_html=True
+        """
     )
 
 
@@ -1327,7 +1349,7 @@ if st.session_state.stage == "url":
 
         with loading_placeholder.container():
 
-            st.markdown(
+            st.html(
                 """
                 <div class="loading-card">
 
@@ -1346,9 +1368,7 @@ if st.session_state.stage == "url":
                     </div>
 
                 </div>
-                """,
-
-                unsafe_allow_html=True
+                """
             )
 
 
@@ -1428,7 +1448,7 @@ if st.session_state.stage == "url":
     # HOW IT WORKS
     # ========================================================
 
-    st.markdown(
+    st.html(
         """
         <div class="section-title">
             How it works
@@ -1438,9 +1458,7 @@ if st.session_state.stage == "url":
         <div class="section-subtitle">
             From YouTube URL to conversational knowledge.
         </div>
-        """,
-
-        unsafe_allow_html=True
+        """
     )
 
 
@@ -1453,7 +1471,7 @@ if st.session_state.stage == "url":
 
     with col1:
 
-        st.markdown(
+        st.html(
             """
             <div class="feature-card">
 
@@ -1474,9 +1492,7 @@ if st.session_state.stage == "url":
                 </div>
 
             </div>
-            """,
-
-            unsafe_allow_html=True
+            """
         )
 
 
@@ -1486,7 +1502,7 @@ if st.session_state.stage == "url":
 
     with col2:
 
-        st.markdown(
+        st.html(
             """
             <div class="feature-card">
 
@@ -1507,9 +1523,7 @@ if st.session_state.stage == "url":
                 </div>
 
             </div>
-            """,
-
-            unsafe_allow_html=True
+            """
         )
 
 
@@ -1519,7 +1533,7 @@ if st.session_state.stage == "url":
 
     with col3:
 
-        st.markdown(
+        st.html(
             """
             <div class="feature-card">
 
@@ -1540,9 +1554,7 @@ if st.session_state.stage == "url":
                 </div>
 
             </div>
-            """,
-
-            unsafe_allow_html=True
+            """
         )
 
 
@@ -1550,14 +1562,12 @@ if st.session_state.stage == "url":
     # FOOTER
     # ========================================================
 
-    st.markdown(
+    st.html(
         """
         <div class="footer">
             YouTube RAG · Retrieval-Augmented Video Intelligence
         </div>
-        """,
-
-        unsafe_allow_html=True
+        """
     )
 
 
@@ -1579,7 +1589,7 @@ elif st.session_state.stage == "chat":
 
     with header_left:
 
-        st.markdown(
+        st.html(
             f"""
             <div class="chat-header">
 
@@ -1616,9 +1626,7 @@ elif st.session_state.stage == "chat":
                 </div>
 
             </div>
-            """,
-
-            unsafe_allow_html=True
+            """
         )
 
 
@@ -1646,7 +1654,7 @@ elif st.session_state.stage == "chat":
 
     if not st.session_state.messages:
 
-        st.markdown(
+        st.html(
             """
             <div class="chat-empty">
 
@@ -1668,9 +1676,7 @@ elif st.session_state.stage == "chat":
                 </div>
 
             </div>
-            """,
-
-            unsafe_allow_html=True
+            """
         )
 
 
@@ -1785,13 +1791,11 @@ elif st.session_state.stage == "chat":
     # FOOTER
     # ========================================================
 
-    st.markdown(
+    st.html(
         """
         <div class="footer">
             Answers generated from retrieved video context
         </div>
-        """,
-
-        unsafe_allow_html=True
+        """
     )
 
